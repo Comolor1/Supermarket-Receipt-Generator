@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Comolor's Supermarket</h1>
+            <p>Point of Sale System</p>
+        </header>
+
+        <div class="main-content">
+            <div class="scanner-section">
+                <h2>Product Scanner</h2>
+
+                <div class="barcode-scanner">
+                    <h3>Barcode Scanner</h3>
+                    <p>Connect your barcode scanner and scan products</p>
+                    <div id="scanner-status">Scanner ready. Waiting for input...</div>
+                </div>
+
+                <div class="manual-entry">
+                    <h3>Manual Entry</h3>
+                    <div class="form-group">
+                        <label for="barcode">Product Barcode:</label>
+                        <input type="text" id="barcode" placeholder="Enter barcode" autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-name">Product Name:</label>
+                        <input type="text" id="product-name" placeholder="Enter product name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Price (KSh):</label>
+                        <input type="number" id="price" placeholder="Enter price" step="0.01">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" value="1" min="1">
+                    </div>
+
+                    <button id="add-item">Add Item</button>
+                </div>
+
+                <div class="quick-add">
+                    <button data-barcode="4890008100309" data-name="Milk 500ml" data-price="65.00">Milk 500ml</button>
+                    <button data-barcode="5901234123457" data-name="Bread 400g" data-price="55.00">Bread 400g</button>
+                    <button data-barcode="4890008100316" data-name="Sugar 1kg" data-price="130.00">Sugar 1kg</button>
+                    <button data-barcode="4890008100323" data-name="Rice 2kg" data-price="220.00">Rice 2kg</button>
+                    <button data-barcode="4890008100330" data-name="Cooking Oil 1L" data-price="195.00">Oil 1L</button>
+                    <button data-barcode="4890008100347" data-name="Maize Flour 2kg" data-price="140.00">Unga
+                        2kg</button>
+                </div>
+            </div>
+
+            <div class="receipt-section">
+                <h2>Receipt</h2>
+                <div id="date-time"></div>
+
+                <div class="receipt-paper">
+                    <div class="receipt-header">
+                        <h3>Comolor's Supermarket</h3>
+                        <p>Nairobi, Kenya</p>
+                        <p>TEL: +254 700 000000</p>
+                        <p id="receipt-datetime"></p>
+                        <p>Receipt #: <span id="receipt-number">CS-0001</span></p>
+                    </div>
+
+                    <div class="receipt-items">
+                        <table id="receipt-table">
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Qty</th>
+                                    <th>Price</th>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="receipt-body">
+                                <!-- Items will be added here dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="receipt-totals">
+                        <table>
+                            <tr>
+                                <td>Subtotal:</td>
+                                <td id="subtotal">KSh 0.00</td>
+                            </tr>
+                            <tr>
+                                <td>VAT (16%):</td>
+                                <td id="vat">KSh 0.00</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td>TOTAL:</td>
+                                <td id="total">KSh 0.00</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="receipt-footer">
+                        <p>Thank you for shopping at Comolor's Supermarket!</p>
+                        <p>Please come again</p>
+                        <p>Goods once sold are not returnable</p>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="new-receipt">New Receipt</button>
+                    <button id="print-receipt">Print Receipt</button>
+                    <button id="save-receipt">Save to Database</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
